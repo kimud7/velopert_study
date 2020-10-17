@@ -8,10 +8,12 @@ const Counter = (props) => { //컴포넌트는 항상 대문자를 하는 버릇
     const [Number, setNumber] = useState(0);
 
     const increase = () => {
-        setNumber(Number+1);
+        // setNumber(Number+1);
+        setNumber(prevNumber => prevNumber+1);
     }
     const decrease = () => {
-        setNumber(Number-1);
+        // setNumber(Number-1);
+        setNumber(prevNumber => prevNumber-1);
     }
     return (
         <div>
