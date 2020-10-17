@@ -7,6 +7,10 @@ const Counter = (props) => { //컴포넌트는 항상 대문자를 하는 버릇
     const setNumber = numberState[1]; */
     const [Number, setNumber] = useState(0);
 
+    const Calculate = (add) => {
+        // setNumber(Number+1);
+        setNumber(prevNumber => prevNumber+add);
+    }
     const increase = () => {
         // setNumber(Number+1);
         setNumber(prevNumber => prevNumber+1);
@@ -19,8 +23,8 @@ const Counter = (props) => { //컴포넌트는 항상 대문자를 하는 버릇
         <div>
             <div> 카운터 </div>
             <h1>{Number}</h1>
-            <button onClick={increase(1)}>+</button>
-            <button onClick={decrease(-1)}>-</button>
+            <button onClick={()=>Calculate(1)}>+</button>
+            <button onClick={()=>Calculate(-1)}>-</button>
         </div>
       );
 }
