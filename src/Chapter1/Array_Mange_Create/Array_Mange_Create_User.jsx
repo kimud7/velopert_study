@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Array_Mange_Create_User = (username, email, onChange, onCreate) => {
+const Array_Mange_Create_User = ({username, email, onChange, onCreate}) => {
     return ( 
       <div>
          <input
