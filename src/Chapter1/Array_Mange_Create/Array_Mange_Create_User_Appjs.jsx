@@ -8,6 +8,7 @@ const Create_Appjs = () => {
     username: '',
     email: ''
   });
+
   const { username, email } = inputs;
 
   const onChange = e => {
@@ -36,7 +37,7 @@ const Create_Appjs = () => {
       }
     ]);
 
-    const nextId = useRef(4);
+    const nextId = useRef(1);
 
     const onCreate = () => {
       const user = {
@@ -51,6 +52,13 @@ const Create_Appjs = () => {
       });
       nextId.current += 1;
     };
+
+  const onRemove = id => {
+    // user.id 가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
+    // = user.id 가 id 인 것을 제거함
+    setUsers(users.filter(user => user.id !== id));
+  };
+
   return ( 
     <>
       <Array_Mange_Create_User
@@ -58,7 +66,7 @@ const Create_Appjs = () => {
        email={email}
        onChange={onChange}
        onCreate={onCreate} />
-      <Array_Mange_UserList users={users}/>
+      <Array_Mange_UserList users={users} onRemove={onRemove}/>
     </>
    );
 }
