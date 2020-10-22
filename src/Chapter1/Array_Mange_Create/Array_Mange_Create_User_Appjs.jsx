@@ -59,6 +59,13 @@ const Create_Appjs = () => {
     setUsers(users.filter(user => user.id !== id));
   };
 
+  const onToggle = id => {
+    setUsers(
+      users.map(user =>
+        user.id === id ? { ...user, active: !user.active } : user
+      )
+    );
+  };
   return ( 
     <>
       <Array_Mange_Create_User
@@ -66,7 +73,7 @@ const Create_Appjs = () => {
        email={email}
        onChange={onChange}
        onCreate={onCreate} />
-      <Array_Mange_UserList users={users} onRemove={onRemove}/>
+      <Array_Mange_UserList users={users} onRemove={onRemove} onToggle={onToggle} />
     </>
    );
 }
